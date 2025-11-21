@@ -1,51 +1,33 @@
+#ifndef STACK_H
 #define STACK_H
 #include<iostream>
-#include<vector>
 using namespace std;
-
-struct stack{
-	vector<int>stack;
-	int val;
-	void push(int val){
-		stack.push_back(val);	
-	}
-	void pop()
-	{
-		stack.pop_back();
-	}
-	bool is_empty()
-	{
-		if(stack.empty()){
-			return true;
-		}
-		else
-		{
-			return false;
-		}
-	}
-	int top()
-	{
-		if(is_empty())
-		{
-			cout << "stack is empty" <<endl;
-			return 0;
-		}
-		else
-		{
-			return cout << stack.back();
-		}
-	}
-	int size()
-	{
-		if(!stack.empty())
-		{
-			return stack.size();	
-		}
-		else
-		{
-			cout << "stack is empty" << endl;
-			return 0;	
-		}
-	}
-
-};
+const int n = 100;
+void push(int st[],int &top,int val){
+    if(top==n-1){
+        cout << "Stack Overflown";
+    }
+    else{
+        st[++top]=val;
+    }
+}
+void pop(int st[],int &top){
+    if(top<0){
+        cout << "Stack Overflown";
+    }
+    else{
+        top--;
+    }
+}
+void display(int st[],int top){
+    if(top<0){
+        cout << "Stack is empty";
+    }
+    else{
+        for(int i=top;i>=0;i--){
+            cout << st[i] << " ";
+        }
+        cout << endl;
+    }
+}
+#endif
